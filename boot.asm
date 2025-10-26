@@ -1,7 +1,7 @@
 bits 16
 org 0x7c00      ;It is a directive which tells that the code will be loaded at a memory address 0x7c00
 
-mov ah,0xe
+
 mov ah,0x06
 mov al,0x00
 mov bh, 0x1E    ; Attribute: Blue background (1), Yellow text (E)
@@ -21,12 +21,14 @@ print_loop:
     int 0x10    ;BIOS Interuppt for writing character on the screen
     jmp print_loop      ;Repeat the loop
 
+    
+
 hang:
     hlt
     jmp hang
 
-msg db "BIOS INTERUPPT" ,0 ; Null terminated string
-
+real_mode_msg db "This is Real Mode", 0; Null terminated String
+msg db "Hello, World!" ,0 ; Null terminated String
 ;Bootloader signature 
 times 510-($-$$) db 0
 dw 0xaa55
