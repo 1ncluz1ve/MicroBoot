@@ -11,7 +11,7 @@ mov dh, 24      ; Bottom row (for 25-row screen)
 mov dl, 79      ; Right column (for 80-column screen)
 int 0x10
 
-mov ah, 0x0e    ; Your original code starts here
+mov ah, 0x0e    ; The code code starts here
 mov si, msg
 
 print_loop:
